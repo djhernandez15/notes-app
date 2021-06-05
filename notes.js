@@ -26,9 +26,9 @@ const addNote = (title, body) => {
 const removeNote = (title) => {
 	const notes = loadNotes();
 	if (notes.length === 0) {
-		console.log("No notes to remove!");
+		console.log(chalk.yellow.italic("No notes to remove!"));
 	} else {
-		console.log(`Removing ${title} from notes!`);
+		console.log(chalk.green.italic(`Removing ${title} from notes!`));
 		for (var i = 0; i < notes.length; i++) {
 			if (title === notes[i].title) {
 				notes.splice(i, 1);
