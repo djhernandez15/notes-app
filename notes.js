@@ -28,7 +28,7 @@ const removeNote = (title) => {
 	if (notes.length === 0) {
 		console.log(chalk.yellow.italic("No notes to remove!"));
 	} else {
-		console.log(chalk.green.italic(`Removing ${title} from notes!`));
+		console.log(chalk.green.italic(`Removing `) + chalk.yellow.italic(title) + chalk.green.italic(` from notes!`));
 		for (var i = 0; i < notes.length; i++) {
 			if (title === notes[i].title) {
 				notes.splice(i, 1);
