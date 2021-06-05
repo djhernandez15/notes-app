@@ -28,7 +28,11 @@ const removeNote = (title) => {
 	if (notes.length === 0) {
 		console.log(chalk.yellow.italic("No notes to remove!"));
 	} else {
-		console.log(chalk.green.italic(`Removing `) + chalk.yellow.italic(title) + chalk.green.italic(` from notes!`));
+		console.log(
+			chalk.green.italic(`Removing `) +
+				chalk.yellow.italic(title) +
+				chalk.green.italic(` from notes!`)
+		);
 		for (var i = 0; i < notes.length; i++) {
 			if (title === notes[i].title) {
 				notes.splice(i, 1);
@@ -36,6 +40,16 @@ const removeNote = (title) => {
 		}
 		saveNotes(notes);
 	}
+};
+
+const listNotes = () => {
+	const notes = loadNotes();
+	notes.length === 0
+		? console.log(chalk.yellow("No notes to list"))
+		: console.log(chalk.green.italic("Your notes: "));
+	notes.forEach((note) => {
+		console.log(note.title);
+	});
 };
 
 const saveNotes = (notes) => {
@@ -56,5 +70,6 @@ const loadNotes = () => {
 module.exports = {
 	getNotes,
 	addNote,
-	removeNote
+	removeNote,
+	listNotes
 };
